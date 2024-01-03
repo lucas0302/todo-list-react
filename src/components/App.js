@@ -1,8 +1,9 @@
+import logo from "../assets/img/logo.png"
 function App() {
   return (
 
       <div className="conteudo">
-        <img src="./assets/img/logo.png" alt="logo"></img>
+        <img src={logo} alt="logo"></img>
 
         <div className="adicionar-tarefa">
           <input type="text" placeholder="Digite a tarefa..."></input>
