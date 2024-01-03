@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className="conteudo">
+        <img src="./assets/img/logo.png" alt="logo"></img>
+
+        <div className="adicionar-tarefa">
+          <input type="text" placeholder="Digite a tarefa..."></input>
+          <button className="botao-adicionar">+</button>
+        </div>
+
+        <ul className="lista-tarefas">
+          <li className={`tarefa`}>
+            <ion-icon name="ellipse-outline"></ion-icon>
+            Jogar Cs2
+          </li>
+          <li className={`tarefa`}>
+            <ion-icon name="ellipse-outline"></ion-icon>
+            Assistir naruto
+          </li>
+          <li className={`tarefa`}>
+            <ion-icon name="ellipse-outline"></ion-icon>
+            Comprar cafe
+          </li>
+        </ul>
+
+      </div>
   );
 }
 
