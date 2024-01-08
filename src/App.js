@@ -2,14 +2,24 @@ import { useState } from "react";
 import logo from "./assets/img/logo.png";
 
 function App() {
-  const [listatarefas, setListaTarefas] = useState(["Jogar Cs2", "Assistir naruto", "Comprar café"]);
+  const [listaTarefas, setListaTarefas] = useState(["Jogar Cs2", "Assistir naruto", "Comprar café"]);
+  const [terminadas, setTerminadas] = useState([]);
 
-  function adicionarTarefa(){
-      const novaTarefa = prompt("add sua nova tarefa: ");
-      const novaListaTarefas = [...listatarefas, novaTarefa]
-      // novaListaTarefas.push(novaTarefa);
-      setListaTarefas(novaListaTarefas);
+  function adicionarTarefa() {
+    const novaTarefa = prompt("add sua nova tarefa: ");
+    //const novaListaTarefas = [...listatarefas]        // primeira forma de fazer
+    // novaListaTarefas.push(novaTarefa);
+    setListaTarefas([...listaTarefas, novaTarefa]);     //segunda forma de fazer
   }
+
+  function terminarTarefa(i) {
+    const novoArry = [...terminadas, listaTarefas[i]]
+    setTerminadas(novoArry);
+
+    alert(`Agora so falta ${listaTarefas.length - novoArry.length} tarefas`);
+
+  }
+
   return (
 
     <div className="conteudo">
@@ -22,9 +32,14 @@ function App() {
 
       <ul className="lista-tarefas">
 
-        {listatarefas.map((task) => (
-          <li key={task} className={`tarefa`}>
-            <ion-icon name="ellipse-outline"></ion-icon>
+        {listaTarefas.map((task, index) => (
+          <li
+            key={task}
+            className={`tarefa ${terminadas.includes(task) ? "finalizada" : ""}`}
+            onClick={terminadas.includes(task) ? null : () => terminarTarefa(index)}
+            
+          >
+            <ion-icon name={terminadas.includes(task) ? "checkmark-circle" : "ellipse-outline"} />
             {task}
           </li>
         ))}
