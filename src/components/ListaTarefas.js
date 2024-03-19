@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Tarefa from "./Tarefa";
 import {useState} from "react";
 export default function ListaTarefas({listaTarefas}) {
@@ -10,10 +11,17 @@ export default function ListaTarefas({listaTarefas}) {
     }
 
     return (
-        <ul className="lista-tarefas">
+        <ContainerLista>
             {listaTarefas.map((task) => (
                 <Tarefa key={Tarefa} terminarTarefa={terminarTarefa} task={task} terminadas={terminadas}/>
             ))}
-        </ul>
+        </ContainerLista>
     );
 }
+
+const ContainerLista = styled.ul`
+    display: flex;
+    flex-direction: column;
+    border-radius: 9px;
+    overflow: hidden;
+`
