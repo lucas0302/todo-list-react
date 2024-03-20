@@ -1,4 +1,4 @@
-import AdicionarTarefa from "./AdicionarTarefa";
+import AdicionarTarefa from "./AdicionarTarefa/AdicionarTarefa";
 import ListaTarefas from "./ListaTarefas";
 import {useState} from "react";
 import logo from "../assets/img/logo.png"
